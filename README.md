@@ -2,7 +2,17 @@
 - Create react app
 - Configured Tailwind CSS
 - Header
+- Routing of App
 - Login Form
+- Signup Form
+- Form validation
+- useRef hook   
+- Firebase setup
+- Deploying our app to production
+- Create Signup/Signin with firebase
+- Created our redux store with user slice
+- Update Profile
+
 
 # Features
 - Login/Signup Page
@@ -18,3 +28,18 @@
 - Netflix GPT
     - Searcg Bar
     - Movie Suggestions
+
+
+# Deploy our app to firebase 
+1. npm i firebase
+2. npm i -g firebase-tools
+3. firebase login
+4. firebase init -- Select (Hosting: Configure files for Firebase Hosting and (optionally) set up GitHub Action deploys)
+   - Use an existing project
+   - Select your firebase project
+   - What do you want to use as your public directory? build
+   - Configure as a single-page app (rewrite all urls to /index.html)? No
+   - Set up automatic builds and deploys with GitHub? No
+   - npm run build (Creating an optimized production build...)
+5. firebase deploy
+Now your app is hosted live
