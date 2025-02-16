@@ -9,7 +9,6 @@ import {
 } from "firebase/auth";
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
-import { useNavigate } from "react-router-dom";
 
 const Login = () => {
   const [signInForm, setSignInForm] = useState(true);
@@ -22,7 +21,6 @@ const Login = () => {
   const password = useRef(null);
   const fullname = useRef(null);
   const dispatch = useDispatch();
-  const navigate = useNavigate();
 
   const checkValidData = (email, password, fullname) => {
     const isEmailValid = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,6}$/.test(
@@ -83,17 +81,13 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("signin User", user);
           // dispatch(addUser(user))
           setIsLoading(false);
           setPasswordError("");
-          navigate("/browse");
-          // ...
         })
         .catch((error) => {
           const errorCode = error.code;
           const errorMessage = error.message;
-          console.log("Error Signup", errorCode);
           if (errorCode == "auth/invalid-credential") {
             setPasswordError("Invalid email and Password");
           }
@@ -109,24 +103,21 @@ const Login = () => {
         .then((userCredential) => {
           // Signed in
           const user = userCredential.user;
-          console.log("signup userObj", user);
           updateProfile(auth.currentUser, {
             displayName: fullname?.current?.value,
+            photoURL: ''
           })
             .then(() => {
-              console.log("profile updated");
               // Profile updated!
-              const { displayName, email, uid } = auth.currentUser;
-              dispatch(addUser({ email, uid, displayName }));
+              const { displayName, email, uid , photoURL} = auth.currentUser;
+              dispatch(addUser({ email, uid, displayName, photoURL }));
               setIsLoading(false);
-              navigate("/browse");
             })
             .catch((error) => {
               // An error occurred
             });
         })
         .catch((error) => {
-          console.log("Error Signup", error);
           setIsLoading(false);
         });
     }

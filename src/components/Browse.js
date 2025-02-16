@@ -1,31 +1,35 @@
-import React, { useState } from 'react'
-import Header from './Header'
-import { signOut } from 'firebase/auth'
-import { useNavigate } from 'react-router-dom';
-import { auth } from '../utils/firebase';
-import Loader from './Loader';
+import React, { useState } from "react";
+import Header from "./Header";
+import { signOut } from "firebase/auth";
+import { useNavigate } from "react-router-dom";
+import { auth } from "../utils/firebase";
+import Loader from "./Loader";
+import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
+import MainContainer from "./MainContainer";
+import SecondaryContainer from "./SecondaryContainer";
 
 const Browse = () => {
   const navigate = useNavigate();
   const [isLoading, setIsLoading] = useState(false);
 
+  // NowPlayinMovies hook called
+  useNowPlayingMovies();
+
+
   const onLogoutClick = () => {
     setIsLoading(true);
-    console.log('logout_success')
-    signOut(auth).then(() => {
-      // Sign-out successful.
-      console.log('logout successfullt')
-    setIsLoading(false);
+    signOut(auth)
+      .then(() => {
+        // Sign-out successful.
+        setIsLoading(false);
+      })
+      .catch((error) => {
+        // An error happened.
+        setIsLoading(false);
 
-      navigate('/')
-    }).catch((error) => {
-      // An error happened.
-    setIsLoading(false);
-
-      navigate('/error')
-
-    });
-  }
+        navigate("/error");
+      });
+  };
   return (
     <div>
       <Header isAuthenticated={true} onSignoutCallback={onLogoutClick} />
@@ -34,8 +38,21 @@ const Browse = () => {
           <Loader />
         </div>
       )}
-    </div>
-  )
-}
+      {/* 
+        Main container
+          - Video Background
+          - Video Title
+        Secondary Container
+          - MoviesList * n
+            - Card * n
+    
+      */}
 
-export default Browse
+      <MainContainer/>
+      {/* <SecondaryContainer/> */}
+
+    </div>
+  );
+};
+
+export default Browse;

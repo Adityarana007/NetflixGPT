@@ -12,6 +12,22 @@
 - Create Signup/Signin with firebase
 - Created our redux store with user slice
 - Update Profile
+- BugFix: Signup user displayname and profile picture update
+- BugFix: If the user is not logged in, Redirect /browse to Login Page and vice versa
+- Register TMDB Api & create an app & get access token
+- GET Data from TMDB now playing movies list API
+- Main container
+          - Video Background
+          - Video Title
+- Secondary Container
+          - MoviesList * n
+            - Card * n
+- Custom Hook for now playing movies
+- Created movie slice
+- Updated store with movie data
+- Fetch data for trailer video
+- Update store with trailer video data
+- Embedded the video and make it autoplay and mute
 
 
 # Features
