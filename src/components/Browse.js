@@ -7,6 +7,9 @@ import Loader from "./Loader";
 import useNowPlayingMovies from "../hooks/useNowPlayingMovies";
 import MainContainer from "./MainContainer";
 import SecondaryContainer from "./SecondaryContainer";
+import usePopularMovies from "../hooks/usePopularMovies";
+import useTrendingMovies from "../hooks/useTrendingMovies";
+import useUpcomingMovies from "../hooks/useUpcomingMovies";
 
 const Browse = () => {
   const navigate = useNavigate();
@@ -14,6 +17,15 @@ const Browse = () => {
 
   // NowPlayinMovies hook called
   useNowPlayingMovies();
+
+  // Popular Movies hook
+  usePopularMovies();
+
+// trending movies
+useTrendingMovies();
+
+// upcoming movies
+useUpcomingMovies();
 
 
   const onLogoutClick = () => {
@@ -49,7 +61,7 @@ const Browse = () => {
       */}
 
       <MainContainer/>
-      {/* <SecondaryContainer/> */}
+      <SecondaryContainer/>
 
     </div>
   );

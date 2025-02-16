@@ -28,6 +28,8 @@
 - Fetch data for trailer video
 - Update store with trailer video data
 - Embedded the video and make it autoplay and mute
+- Create Secondary container
+    - Movies List -- Popular, Now Playing, Trending, Horror
 
 
 # Features
