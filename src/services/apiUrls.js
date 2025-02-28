@@ -5,4 +5,6 @@ export const GET_MOVIE_TRAILER = (movieId) => `${BASE_URL_MOVIE}${movieId}/video
 export const POPULAR_MOVIES = BASE_URL_MOVIE + 'popular';
 export const TRENDING_MOVIES = BASE_URL + 'trending/all/day';
 export const UPCOMING_MOVIES = BASE_URL_MOVIE + 'upcoming';
+export const SEARCH_MOVIE = (searchTerm) => `${BASE_URL}search/movie?query=${searchTerm}&include_adult=false&language=en-US&page=1`;
+
 

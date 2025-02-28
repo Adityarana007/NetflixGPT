@@ -39,6 +39,7 @@
 - GPT Search Page
 - GPT Search Bar
 - Multilanguage Feature in our App
+- platform.openai.com
 
 
 
