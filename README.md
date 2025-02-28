@@ -30,6 +30,16 @@
 - Embedded the video and make it autoplay and mute
 - Create Secondary container
     - Movies List -- Popular, Now Playing, Trending, Horror
+- Build Movie List
+- Build Movie card
+- TMDB Image CDN url
+- Made the browse page more amazing with Tailwind CSS
+- usePopularMovies custom hook
+- GPT Search Feature
+- GPT Search Page
+- GPT Search Bar
+- Multilanguage Feature in our App
+
 
 
 # Features
